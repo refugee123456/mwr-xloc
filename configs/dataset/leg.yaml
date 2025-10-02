@@ -1,0 +1,9 @@
+dataset:
+  name: leg
+  csv: data/raw/legs.csv
+  id_col: ID              # Optional; can be removed if not present
+  processor_args:
+    n_points: 12
+    trim_deep: 0          # Trim ratio for deep pseudo reference points
+    trim_surf: 0          # Trim ratio for surface pseudo reference points
+output_dir: data/processed/leg

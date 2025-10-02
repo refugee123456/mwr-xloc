@@ -1,0 +1,56 @@
+main:
+  seed: 42
+  out_dir: outputs/episode_viz_leg_3shot
+  ckpt: outputs/pretrain_breast_triplet_semihard/best.ckpt
+  data_root: data/processed/leg
+  reducer:  pca          
+  perplexity: 30
+  figure_dpi: 240
+
+model:
+  node_dim: 13
+  enc_hid: 64
+  enc_out: 64
+  num_heads: 4
+  embed_dim: 128
+
+episode:
+  way: 2
+  shot: 3
+  query: 100
+  sampler_seed: 42
+  episode_index: 0   
+
+finetune_common:
+  inner_epochs: 20
+  lr: 1.0e-5
+  weight_decay: 1.0e-4
+  optimizer: adamw
+  grad_clip: 0.5
+  skip_nonfinite: true
+  bn_eval_mode: true
+  reload_per_episode: true
+
+  cls_gamma: 14.0
+  adaptive_gamma: true
+  gamma_floor: 10.0
+  gamma_ceil: 20.0
+  gamma_alpha: 1.0
+
+  use_recalib: true
+  proto_weighted: true
+  recalib_sim: rbf
+  recalib_rbf_gamma: 0.30
+  recalib_tau: 0.35
+  recalib_blend: 0.30
+  recalib_exclude_self_train: false
+  exclude_self_eval: true
+
+  norm_after_reproj: true
+  scale_by_dim: true
+
+loss_weights:
+  lambda_comp: 0.6
+  lambda_margin: 0.3
+  lambda_align: 0.8
+  proto_margin: 1.0

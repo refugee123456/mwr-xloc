@@ -1,0 +1,821 @@
+[
+  {
+    "id": 0,
+    "path": "data/processed/lung/0",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 1,
+    "path": "data/processed/lung/1",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 2,
+    "path": "data/processed/lung/2",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 3,
+    "path": "data/processed/lung/3",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 4,
+    "path": "data/processed/lung/4",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 5,
+    "path": "data/processed/lung/5",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 6,
+    "path": "data/processed/lung/6",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 7,
+    "path": "data/processed/lung/7",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 8,
+    "path": "data/processed/lung/8",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 9,
+    "path": "data/processed/lung/9",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 10,
+    "path": "data/processed/lung/10",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 11,
+    "path": "data/processed/lung/11",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 12,
+    "path": "data/processed/lung/12",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 13,
+    "path": "data/processed/lung/13",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 14,
+    "path": "data/processed/lung/14",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 15,
+    "path": "data/processed/lung/15",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 16,
+    "path": "data/processed/lung/16",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 17,
+    "path": "data/processed/lung/17",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 18,
+    "path": "data/processed/lung/18",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 19,
+    "path": "data/processed/lung/19",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 20,
+    "path": "data/processed/lung/20",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 21,
+    "path": "data/processed/lung/21",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 22,
+    "path": "data/processed/lung/22",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 23,
+    "path": "data/processed/lung/23",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 24,
+    "path": "data/processed/lung/24",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 25,
+    "path": "data/processed/lung/25",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 26,
+    "path": "data/processed/lung/26",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 27,
+    "path": "data/processed/lung/27",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 28,
+    "path": "data/processed/lung/28",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 29,
+    "path": "data/processed/lung/29",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 30,
+    "path": "data/processed/lung/30",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 31,
+    "path": "data/processed/lung/31",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 32,
+    "path": "data/processed/lung/32",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 33,
+    "path": "data/processed/lung/33",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 34,
+    "path": "data/processed/lung/34",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 35,
+    "path": "data/processed/lung/35",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 36,
+    "path": "data/processed/lung/36",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 37,
+    "path": "data/processed/lung/37",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 38,
+    "path": "data/processed/lung/38",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 39,
+    "path": "data/processed/lung/39",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 40,
+    "path": "data/processed/lung/40",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 41,
+    "path": "data/processed/lung/41",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 42,
+    "path": "data/processed/lung/42",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 43,
+    "path": "data/processed/lung/43",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 44,
+    "path": "data/processed/lung/44",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 45,
+    "path": "data/processed/lung/45",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 46,
+    "path": "data/processed/lung/46",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 47,
+    "path": "data/processed/lung/47",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 48,
+    "path": "data/processed/lung/48",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 49,
+    "path": "data/processed/lung/49",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 50,
+    "path": "data/processed/lung/50",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 51,
+    "path": "data/processed/lung/51",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 52,
+    "path": "data/processed/lung/52",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 53,
+    "path": "data/processed/lung/53",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 54,
+    "path": "data/processed/lung/54",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 55,
+    "path": "data/processed/lung/55",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 56,
+    "path": "data/processed/lung/56",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 57,
+    "path": "data/processed/lung/57",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 58,
+    "path": "data/processed/lung/58",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 59,
+    "path": "data/processed/lung/59",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 60,
+    "path": "data/processed/lung/60",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 61,
+    "path": "data/processed/lung/61",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 62,
+    "path": "data/processed/lung/62",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 63,
+    "path": "data/processed/lung/63",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 64,
+    "path": "data/processed/lung/64",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 65,
+    "path": "data/processed/lung/65",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 66,
+    "path": "data/processed/lung/66",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 67,
+    "path": "data/processed/lung/67",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 68,
+    "path": "data/processed/lung/68",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 69,
+    "path": "data/processed/lung/69",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 70,
+    "path": "data/processed/lung/70",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 71,
+    "path": "data/processed/lung/71",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 72,
+    "path": "data/processed/lung/72",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 73,
+    "path": "data/processed/lung/73",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 74,
+    "path": "data/processed/lung/74",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 75,
+    "path": "data/processed/lung/75",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 76,
+    "path": "data/processed/lung/76",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 77,
+    "path": "data/processed/lung/77",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 78,
+    "path": "data/processed/lung/78",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 79,
+    "path": "data/processed/lung/79",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 80,
+    "path": "data/processed/lung/80",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 81,
+    "path": "data/processed/lung/81",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 82,
+    "path": "data/processed/lung/82",
+    "n_nodes": 28,
+    "y": 1,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 83,
+    "path": "data/processed/lung/83",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 84,
+    "path": "data/processed/lung/84",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 85,
+    "path": "data/processed/lung/85",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 86,
+    "path": "data/processed/lung/86",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 87,
+    "path": "data/processed/lung/87",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 88,
+    "path": "data/processed/lung/88",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 89,
+    "path": "data/processed/lung/89",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  },
+  {
+    "id": 90,
+    "path": "data/processed/lung/90",
+    "n_nodes": 28,
+    "y": 0,
+    "policy": "row-impute(L/R×deep/surf)+ref-normalize",
+    "ref_used_deep": "T2",
+    "ref_used_surf": "Skin T2"
+  }
+]

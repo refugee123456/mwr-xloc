@@ -1,0 +1,8 @@
+dataset:
+  name: breast
+  csv: data/raw/breast.csv
+  id_col: ID
+  processor_args:
+    # ambient_col: "Ambient"     # Can be kept, but not used for the breast dataset
+    ref_index: 1                 # Use the 2nd reference point (T2/Skin T2) for normalization; T1 can be set to 0
+output_dir: data/processed/breast

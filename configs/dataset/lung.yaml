@@ -1,0 +1,15 @@
+# Lung preprocessing config (paired with run_preprocess.py)
+dataset:
+  name: lung
+  csv: data/raw/lungs.csv         # <-- Change to your raw CSV path
+  id_col: id                      # If there is no unique id, you can remove this line; the runner will use the DataFrame index
+  processor: lung                 # Let the runner select LungProcessor (usually matched by name or processor)
+  processor_args:
+    ref_index: 1                  # 0 uses T1/Skin T1; 1 uses T2/Skin T2
+
+output_dir: data/processed/lung
+save:
+  nodes: true
+  edges: true
+  pairs: true
+  meta: true

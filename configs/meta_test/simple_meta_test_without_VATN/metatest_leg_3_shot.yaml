@@ -1,0 +1,68 @@
+main:
+  seed: 42
+  out_dir: outputs/meta_test_leg_simple_without_VATN_3_shot
+  ckpt: outputs/pretrain_breast_triplet_semihard/best.ckpt
+  data_root: "data/processed/leg"
+  debug: true
+
+model:
+  node_dim: 13
+  enc_hid: 64
+  enc_out: 64
+  num_heads: 4
+  embed_dim: 128
+
+meta:
+  way: 2
+  shot: 3         
+  query: 100
+  episodes: 200
+
+finetune:
+  enabled: false    
+  reload_per_episode: true
+  bn_eval_mode: true
+
+  inner_epochs: 1       
+  lr: 3.0e-4             
+  weight_decay: 1.0e-4
+  optimizer: adamw
+  grad_clip: 0.5
+  skip_nonfinite: true
+
+ 
+  cls_gamma: 14.0
+  adaptive_gamma: true
+  gamma_floor: 10.0
+  gamma_ceil: 20.0
+  gamma_alpha: 1.0
+
+ 
+  loss_weights:
+    lambda_comp: 0.6
+    lambda_margin: 0.3
+    lambda_align: 0.8
+
+  proto_margin: 1
+
+ 
+  use_recalib: true
+  proto_weighted: true
+  recalib_sim: rbf
+  recalib_rbf_gamma: 0.30   
+  recalib_tau: 0.35        
+  recalib_blend: 0.30       
+  recalib_exclude_self_train: false
+  exclude_self: true       
+
+pfa:
+ 
+  use_vtan: false
+  lambda: 0.04
+  target_momentum: 0.90
+  clip_w_spectral: true
+  w_spectral_max: 2.5
+
+ 
+  norm_after_reproj: true
+  scale_by_dim: true

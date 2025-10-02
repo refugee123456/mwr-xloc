@@ -1,0 +1,4 @@
+(a) No-FT + Recal (no VTAN): ACC=0.6400 MCC=0.2757 SPEC=0.8182 SENS=0.6180 AUC=0.7681 G-Mean=0.7111 | within=6.58 between=7.29
+(b) No-FT + Recal (+VTAN): ACC=0.7800 MCC=0.2635 SPEC=0.5455 SENS=0.8090 AUC=0.7508 G-Mean=0.6643 | within=13.25 between=14.29
+(c) FT + Recal (no VTAN): ACC=0.6500 MCC=0.2836 SPEC=0.8182 SENS=0.6292 AUC=0.7732 G-Mean=0.7175 | within=6.58 between=7.29
+(d) FT + Recal (+VTAN): ACC=0.7000 MCC=0.3264 SPEC=0.8182 SENS=0.6854 AUC=0.7487 G-Mean=0.7488 | within=20.34 between=21.76

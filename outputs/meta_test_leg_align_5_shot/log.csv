@@ -1,0 +1,2 @@
+epoch,phase,loss,acc,spec,sens,gmean,mcc,auc,thr_opt,key,key_name,val_thr
+TEST,test,0.0,0.694,0.820230607966457,0.6806875967278355,0.7472086731959815,0.3052878738892943,0.7832185664372777,0.5,,test,0.500
