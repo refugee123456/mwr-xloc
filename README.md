@@ -194,8 +194,8 @@ pip install numpy pandas pyyaml tqdm scikit-learn matplotlib umap-learn scipy
 ## Quick Start
 
 > You can **freely swap any YAML** shown below with another one under `configs/**`.  
-> Whenever you want to run a *different* experiment (e.g., other dataset, other loss, other shot size), simply **replace the `--config` or 'cfg' path** with the YAML that matches your choice.
-
+> Whenever you want to run a *different* experiment (e.g., other dataset, other loss, other shot size), simply **replace the `--config` or `--cfg` path** with the YAML that matches your choice.
+or
 ---
 
 ### 1) Data Preparation (Stage-1)
@@ -321,6 +321,7 @@ This script saves:
   target dataset (`leg` / `lung`), K (=3/5/10), VTAN & recalibration toggles, fine-tuning epochs, CORAL & margins, `main.ckpt`.
 
 > Bottom line: to run another experiment, replace the `--cfg` path with the YAML that encodes your setup. No code changes required.
+
 
 
 
