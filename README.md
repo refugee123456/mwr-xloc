@@ -42,6 +42,7 @@ During meta-test on a new anatomical location, we adapt with **instance recalibr
 ---
 
 ## Repository Structure
+```text
 mwr-xloc/
 ├─ README.md # How to use the project (Dependencies / Install / Run / Results)
 │
@@ -143,3 +144,4 @@ mwr-xloc/
 ├─ pretrain_/ # Train logs, best.ckpt, log.csv
 ├─ meta_eval/* # Meta-test summary: episodes_metrics.csv, episodes_summary.txt, log.csv
 └─ episode_viz/* # Single-episode viz: PNG + metrics.csv/txt
+```text
