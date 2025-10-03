@@ -191,6 +191,42 @@ pip install numpy pandas pyyaml tqdm scikit-learn matplotlib umap-learn scipy
 ```
 ---
 
+## Quick Start
+
+> You can **freely swap any YAML** shown below with another one under `configs/**`.  
+> Whenever you want to run a *different* experiment (e.g., other dataset, other loss, other shot size), simply **replace the `--cfg` path** with the YAML that matches your choice.
+
+---
+
+### 1) Data Preparation (Stage-1)
+
+Place the raw tables in `data/raw/` with the **exact file names**:
+```text
+data/raw/
+├─ breast.csv
+├─ legs.csv
+└─ lungs.csv
+```
+
+Then run the preprocessing script with the dataset YAML you want:
+
+```bash
+# Breast / Leg / Lung (choose one YAML)
+python -m src.scripts.run_preprocess --cfg configs/dataset/leg.yaml
+
+# outputs → data/processed/leg/ (manifest.json, splits.json, <sample_id>/*)
+```
+
+- `configs/dataset/*.yaml` controls **reference points**, **per-dataset normalization**, **export paths**, etc.
+
+- To preprocess another dataset, **only change the YAML path**, e.g.:
+  - `--cfg configs/dataset/breast.yaml`
+  - `--cfg configs/dataset/lung.yaml`
+
+
+
+
+
 
 
 
