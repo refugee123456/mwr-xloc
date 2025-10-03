@@ -162,7 +162,7 @@ mwr-xloc/
    └─ episode_viz/*                 # Single-episode figure (PNG) + metrics.{csv,txt} + config snapshot
 
 
-
+```
 
 ---
 
@@ -188,6 +188,7 @@ pip install torch==2.1.* --index-url https://download.pytorch.org/whl/cu118
 
 # 3) libraries
 pip install numpy pandas pyyaml tqdm scikit-learn matplotlib umap-learn scipy
+
 
 
 
