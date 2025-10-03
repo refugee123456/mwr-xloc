@@ -75,7 +75,7 @@ mwr-xloc/
 │  │     
 │  │
 │  └─ episode_viz/                  # Single-episode visualization presets (paper-style figures)
-│     └─ leg_episode_5shot.yaml     # Deterministic episode draw + plotting options (UMAP/TSNE, DPI, fonts)
+│     └─ leg_episode_3shot.yaml     # Deterministic episode draw + plotting options (UMAP/TSNE, DPI, fonts)
 │
 ├─ data/
 │  ├─ raw/                          # Raw CSV/Excel files (as exported from clinical systems)
@@ -188,6 +188,9 @@ pip install torch==2.1.* --index-url https://download.pytorch.org/whl/cu118
 
 # 3) libraries
 pip install numpy pandas pyyaml tqdm scikit-learn matplotlib umap-learn scipy
+
+---
+
 
 
 
