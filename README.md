@@ -161,3 +161,34 @@ mwr-xloc/
    ├─ meta_eval/*                   # Episode-wise metrics (episodes_metrics.csv), summary.txt, log.csv
    └─ episode_viz/*                 # Single-episode figure (PNG) + metrics.{csv,txt} + config snapshot
 
+
+
+
+---
+
+## Dependencies
+
+Tested with **Python 3.10**, **CUDA 11.8**, **PyTorch ≥ 2.1**.
+
+- Core: `torch`, `numpy`, `pandas`, `pyyaml`, `tqdm`
+- Evaluation / reduction / plots: `scikit-learn`, `matplotlib`
+- Optional (visualization): `umap-learn` (UMAP), `scipy` (KDE contours)
+
+> If an optional package is missing, the code falls back gracefully (e.g., UMAP → t-SNE → PCA; contours disabled).
+
+**Install (example)**
+
+```bash
+# 1) environment
+conda create -n mwr-xloc python=3.10 -y
+conda activate mwr-xloc
+
+# 2) PyTorch (choose CUDA build to match your system)
+pip install torch==2.1.* --index-url https://download.pytorch.org/whl/cu118
+
+# 3) libraries
+pip install numpy pandas pyyaml tqdm scikit-learn matplotlib umap-learn scipy
+
+
+
+
