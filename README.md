@@ -300,6 +300,32 @@ python -m src.scripts.run_metatest \
 All inner-loop epochs, loss weights (compact/margin/CORAL), VTAN/recalib toggles, seeds, and `main.ckpt` are exposed in each YAML.
 
 
+### 4) One-Episode Visualization (2×2, paper-style)
+
+Reproduce the figure that compares the **four settings on the same episode** (Times font, KDE contours, clean legend), and save the plot + metrics:
+
+```bash
+python -m src.scripts.plot_episode_viz \
+  --cfg configs/episode_viz/leg_episode_3shot.yaml
+```
+
+This script saves:
+- `outputs/episode_viz/leg_episode_viz_4panels.png`
+- `outputs/episode_viz/episode_metrics.csv` and `.txt`
+
+### Configuration Guide (what you’ll likely tweak)
+
+- **Stage-1** (`configs/dataset/*.yaml`): reference points, trimming, graph building, normalization, export dir.
+- **Stage-2** (`configs/pretrain/*.yaml`): metric-learning recipe, batch size, lr, epochs, scheduler, loss weights.
+- **Stage-3** (`configs/meta_test/**/metatest_*_K_shot.yaml`):  
+  target dataset (`leg` / `lung`), K (=3/5/10), VTAN & recalibration toggles, fine-tuning epochs, CORAL & margins, `main.ckpt`.
+
+> Bottom line: to run another experiment, replace the `--cfg` path with the YAML that encodes your setup. No code changes required.
+
+
+
+
+
 
 
 
