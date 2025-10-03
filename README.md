@@ -59,23 +59,20 @@ mwr-xloc/
 │  │  ├─ pretrain_triplet_semi.yaml # CE + Triplet (semi-hard mining) on graph-level features
 │  │  └─ pretrain_npairs.yaml       # CE + N-pairs contrastive objective
 │  │
-│  ├─ meta_test/                    # Stage-3: cross-domain few-shot meta-test (target domain)
-│  │  ├─ meta_test_fintune/         # (D) FT + Recal (+VTAN) — VTAN on; inner-loop fine-tuning enabled
-│  │  │  ├─ metatest_breast_{3,5,10}_shot.yaml  # Few-shot configs when target=Breast (for completeness)
-│  │  │  ├─ metatest_leg_{3,5,10}_shot.yaml     # Few-shot configs when target=Leg
-│  │  │  └─ metatest_lung_{3,5,10}_shot.yaml    # Few-shot configs when target=Lung
-│  │  ├─ meta_test_without_vtan/    # (C) FT + Recal (no VTAN) — fine-tuning on support, VTAN disabled
-│  │  │  ├─ metatest_breast_{3,5,10}_shot.yaml
+│  ├─ meta_test/                                              # Stage-3: cross-domain few-shot meta-test (target domain)
+│  │  ├─ meta_test_fintune/                                   # (D) FT + Recal (+VTAN) — VTAN on; inner-loop fine-tuning enabled
+│  │  │  ├─ metatest_leg_{3,5,10}_shot.yaml                   # Few-shot configs when target=Leg
+│  │  │  └─ metatest_lung_{3,5,10}_shot.yaml                  # Few-shot configs when target=Lung
+│  │  ├─ meta_test_without_vtan/                              # (C) FT + Recal (no VTAN) — fine-tuning on support, VTAN disabled
 │  │  │  ├─ metatest_leg_{3,5,10}_shot.yaml
 │  │  │  └─ metatest_lung_{3,5,10}_shot.yaml
-│  │  ├─ simple_meta_test/          # (B) No-FT + Recal (+VTAN) — prototype recalibration + VTAN only
-│  │  │  ├─ metatest_breast_{3,5,10}_shot.yaml
+│  │  ├─ simple_meta_test/                                    # (B) No-FT + Recal (+VTAN) — prototype recalibration + VTAN only
 │  │  │  ├─ metatest_leg_{3,5,10}_shot.yaml
 │  │  │  └─ metatest_lung_{3,5,10}_shot.yaml
-│  │  └─ simple_meta_test_without_VATN/  # (A) No-FT + Recal (no VTAN) — pure recalibration; no VTAN/no FT
-│  │     ├─ metatest_breast_{3,5,10}_shot.yaml
+│  │  └─ simple_meta_test_without_VATN/                       # (A) No-FT + Recal (no VTAN) — pure recalibration; no VTAN/no FT
 │  │     ├─ metatest_leg_{3,5,10}_shot.yaml
 │  │     └─ metatest_lung_{3,5,10}_shot.yaml
+│  │     
 │  │
 │  └─ episode_viz/                  # Single-episode visualization presets (paper-style figures)
 │     └─ leg_episode_5shot.yaml     # Deterministic episode draw + plotting options (UMAP/TSNE, DPI, fonts)
@@ -163,3 +160,4 @@ mwr-xloc/
    ├─ pretrain_*/*                  # Source training logs, best.ckpt, train/val log.csv, config snapshot
    ├─ meta_eval/*                   # Episode-wise metrics (episodes_metrics.csv), summary.txt, log.csv
    └─ episode_viz/*                 # Single-episode figure (PNG) + metrics.{csv,txt} + config snapshot
+
