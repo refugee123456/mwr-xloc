@@ -194,7 +194,7 @@ pip install numpy pandas pyyaml tqdm scikit-learn matplotlib umap-learn scipy
 ## Quick Start
 
 > You can **freely swap any YAML** shown below with another one under `configs/**`.  
-> Whenever you want to run a *different* experiment (e.g., other dataset, other loss, other shot size), simply **replace the `--cfg` path** with the YAML that matches your choice.
+> Whenever you want to run a *different* experiment (e.g., other dataset, other loss, other shot size), simply **replace the `--config` path** with the YAML that matches your choice.
 
 ---
 
@@ -212,7 +212,7 @@ Then run the preprocessing script with the dataset YAML you want:
 
 ```bash
 # Breast / Leg / Lung (choose one YAML)
-python -m src.scripts.run_preprocess --cfg configs/dataset/leg.yaml
+python -m src.scripts.run_preprocess --config configs/dataset/leg.yaml
 
 # outputs → data/processed/leg/ (manifest.json, splits.json, <sample_id>/*)
 ```
@@ -220,8 +220,8 @@ python -m src.scripts.run_preprocess --cfg configs/dataset/leg.yaml
 - `configs/dataset/*.yaml` controls **reference points**, **per-dataset normalization**, **export paths**, etc.
 
 - To preprocess another dataset, **only change the YAML path**, e.g.:
-  - `--cfg configs/dataset/breast.yaml`
-  - `--cfg configs/dataset/lung.yaml`
+  - `--config configs/dataset/breast.yaml`
+  - `--config configs/dataset/lung.yaml`
 
 ### 2) Source Pretraining (Stage-2)
 
@@ -231,27 +231,27 @@ Choose the training recipe by swapping the YAML:
 ```bash
 # (a) CE only
 python -m src.scripts.run_pretrain \
-  --cfg configs/pretrain/pretrain_none.yaml
+  --config configs/pretrain/pretrain_none.yaml
 
 # (b) With metric Learning (recommended) — pick one:
 python -m src.scripts.run_pretrain \
-  --cfg configs/pretrain/pretrain_triplet_hard.yaml
+  --config configs/pretrain/pretrain_triplet_hard.yaml
 
 # or
 python -m src.scripts.run_pretrain \
-  --cfg configs/pretrain/pretrain_triplet_semi.yaml
+  --config configs/pretrain/pretrain_triplet_semi.yaml
 
 # or
 python -m src.scripts.run_pretrain \
-  --cfg configs/pretrain/pretrain_contrastive.yaml
+  --config configs/pretrain/pretrain_contrastive.yaml
 
 # or
 python -m src.scripts.run_pretrain \
-  --cfg configs/pretrain/pretrain_npairs.yaml
+  --config configs/pretrain/pretrain_npairs.yaml
 ```
 
 - Checkpoints are saved under `outputs/pretrain_*/best.ckpt`.
-- To use a different pretraining recipe, replace the `--cfg` YAML with any file in `configs/pretrain/`.
+- To use a different pretraining recipe, replace the `--config` YAML with any file in `configs/pretrain/`.
 
 ### 3) Cross-Location Meta-Test (Stage-3)
 
@@ -262,25 +262,25 @@ All YAMLs point to the same pretrained `best.ckpt` inside their `main.ckpt` fiel
 #### (A) No-FT + Recal (no VTAN)
 ```bash
 python -m src.scripts.run_metatest \
-  --cfg configs/meta_test/simple_meta_test_without_VATN/metatest_leg_5_shot.yaml
+  --config configs/meta_test/simple_meta_test_without_VATN/metatest_leg_5_shot.yaml
 ```
 
 #### (B) No-FT + Recal (+VTAN)
 ```bash
 python -m src.scripts.run_metatest \
-  --cfg configs/meta_test/simple_meta_test/metatest_leg_5_shot.yaml
+  --config configs/meta_test/simple_meta_test/metatest_leg_5_shot.yaml
 ```
 
 #### (C) FT + Recal (no VTAN)
 ```bash
 python -m src.scripts.run_metatest \
-  --cfg configs/meta_test/meta_test_without_vtan/metatest_leg_5_shot.yaml
+  --config configs/meta_test/meta_test_without_vtan/metatest_leg_5_shot.yaml
 ```
 
 #### (D) FT + Recal (+VTAN)
 ```bash
 python -m src.scripts.run_metatest \
-  --cfg configs/meta_test/meta_test_fintune/metatest_leg_5_shot.yaml
+ --config configs/meta_test/meta_test_fintune/metatest_leg_5_shot.yaml
 ```
 
 **Swap experiments by swapping YAMLs only:**
@@ -306,7 +306,7 @@ Reproduce the figure that compares the **four settings on the same episode** (Ti
 
 ```bash
 python -m src.scripts.plot_episode_viz \
-  --cfg configs/episode_viz/leg_episode_3shot.yaml
+  --config configs/episode_viz/leg_episode_3shot.yaml
 ```
 
 This script saves:
@@ -320,7 +320,8 @@ This script saves:
 - **Stage-3** (`configs/meta_test/**/metatest_*_K_shot.yaml`):  
   target dataset (`leg` / `lung`), K (=3/5/10), VTAN & recalibration toggles, fine-tuning epochs, CORAL & margins, `main.ckpt`.
 
-> Bottom line: to run another experiment, replace the `--cfg` path with the YAML that encodes your setup. No code changes required.
+> Bottom line: to run another experiment, replace the `--config` path with the YAML that encodes your setup. No code changes required.
+
 
 
 
