@@ -44,104 +44,122 @@ During meta-test on a new anatomical location, we adapt with **instance recalibr
 ## Repository Structure
 ```text
 mwr-xloc/
-├─ README.md # How to use the project (Dependencies / Install / Run / Results)
+├─ README.md                        # Usage guide: overview, dependencies, install, run, and how to reproduce results
 │
-├─ configs/ # All YAML configs (organized by stage)
-│ ├─ dataset/ # Stage-1: raw table → graph preprocessing
-│ │ ├─ breast.yaml # Breast: reference points / node construction / export dir
-│ │ ├─ leg.yaml # Leg: trimmed mean / number of points / export dir
-│ │ └─ lung.yaml # Lung: reference points / export dir
-│ │
-│ ├─ pretrain/ # Stage-2: source-domain pretraining (CE + optional contrastive)
-│ │ ├─ pretrain_none.yaml # CE only (MetricHead)
-│ │ ├─ pretrain_contrastive.yaml # Siamese margin
-│ │ ├─ pretrain_triplet_hard.yaml # Triplet-hard
-│ │ ├─ pretrain_triplet_semi.yaml # Triplet semi-hard
-│ │ └─ pretrain_npairs.yaml # N-pairs
-│ │
-│ ├─ meta_test/ # Stage-3: cross-domain few-shot meta-test (target domain)
-│ │ ├─ meta_test_fintune/ # (D) FT + Recal (+VTAN) — VTAN enabled by default
-│ │ │ └─ metatest_{breast,leg,lung}{3,5,10}shot.yaml
-│ │ ├─ meta_test_without_vtan/ # (C) FT + Recal (no VTAN)
-│ │ │ └─ metatest{breast,leg,lung}{3,5,10}shot.yaml
-│ │ ├─ simple_meta_test/ # (B) No-FT + Recal (+VTAN)
-│ │ │ └─ metatest{breast,leg,lung}{3,5,10}shot.yaml
-│ │ └─ simple_meta_test_without_VATN/ # (A) No-FT + Recal (no VTAN)
-│ │ └─ metatest{breast,leg,lung}{3,5,10}shot.yaml
-│ │
-│ └─ episode_viz/ # Single-episode visualization (paper figure)
-│ └─ leg_episode_5shot.yaml
+├─ configs/                         # All YAML configs (organized by stage)
+│  ├─ dataset/                      # Stage-1: raw table → graph preprocessing parameters
+│  │  ├─ breast.yaml                # Breast preprocessing: reference points, node-feature recipe, export root
+│  │  ├─ leg.yaml                   # Leg preprocessing: trimmed-mean settings, #points per side, export root
+│  │  └─ lung.yaml                  # Lung preprocessing: reference points, node-feature recipe, export root
+│  │
+│  ├─ pretrain/                     # Stage-2: source-domain pretraining (supervised CE + optional contrastive)
+│  │  ├─ pretrain_none.yaml         # Baseline CE classification with MetricHead; no contrastive loss
+│  │  ├─ pretrain_contrastive.yaml  # CE + Siamese margin contrastive on graph-level features
+│  │  ├─ pretrain_triplet_hard.yaml # CE + Triplet (hard mining) on graph-level features
+│  │  ├─ pretrain_triplet_semi.yaml # CE + Triplet (semi-hard mining) on graph-level features
+│  │  └─ pretrain_npairs.yaml       # CE + N-pairs contrastive objective
+│  │
+│  ├─ meta_test/                    # Stage-3: cross-domain few-shot meta-test (target domain)
+│  │  ├─ meta_test_fintune/         # (D) FT + Recal (+VTAN) — VTAN on; inner-loop fine-tuning enabled
+│  │  │  ├─ metatest_breast_{3,5,10}_shot.yaml  # Few-shot configs when target=Breast (for completeness)
+│  │  │  ├─ metatest_leg_{3,5,10}_shot.yaml     # Few-shot configs when target=Leg
+│  │  │  └─ metatest_lung_{3,5,10}_shot.yaml    # Few-shot configs when target=Lung
+│  │  ├─ meta_test_without_vtan/    # (C) FT + Recal (no VTAN) — fine-tuning on support, VTAN disabled
+│  │  │  ├─ metatest_breast_{3,5,10}_shot.yaml
+│  │  │  ├─ metatest_leg_{3,5,10}_shot.yaml
+│  │  │  └─ metatest_lung_{3,5,10}_shot.yaml
+│  │  ├─ simple_meta_test/          # (B) No-FT + Recal (+VTAN) — prototype recalibration + VTAN only
+│  │  │  ├─ metatest_breast_{3,5,10}_shot.yaml
+│  │  │  ├─ metatest_leg_{3,5,10}_shot.yaml
+│  │  │  └─ metatest_lung_{3,5,10}_shot.yaml
+│  │  └─ simple_meta_test_without_VATN/  # (A) No-FT + Recal (no VTAN) — pure recalibration; no VTAN/no FT
+│  │     ├─ metatest_breast_{3,5,10}_shot.yaml
+│  │     ├─ metatest_leg_{3,5,10}_shot.yaml
+│  │     └─ metatest_lung_{3,5,10}_shot.yaml
+│  │
+│  └─ episode_viz/                  # Single-episode visualization presets (paper-style figures)
+│     └─ leg_episode_5shot.yaml     # Deterministic episode draw + plotting options (UMAP/TSNE, DPI, fonts)
 │
 ├─ data/
-│ ├─ raw/ # Raw CSV/Excel files you provide
-│ │ ├─ breast.csv │ legs.csv │ lungs.csv
-│ └─ processed/ # Graph datasets after preprocessing
-│ ├─ breast/ | leg/ | lung/
-│ │ ├─ manifest.json # Sample list (y, path, #nodes, etc.)
-│ │ ├─ splits.json # If no split* files found, splits are auto-generated (stratifiable)
-│ │ └─ <sample_id>/
-│ │ ├─ nodes.npy # [N,13] node features
-│ │ ├─ edge_index.npy # [2,E] graph edges
-│ │ ├─ pairs.npy # [M,2] left-right mirror index pairs
-│ │ └─ meta.json # sample metadata
+│  ├─ raw/                          # Raw CSV/Excel files (as exported from clinical systems)
+│  │  ├─ breast.csv                 # Breast table with per-site measurements and labels
+│  │  ├─ legs.csv                   # Leg table with per-site measurements and labels
+│  │  └─ lungs.csv                  # Lung table with per-site measurements and labels
+│  └─ processed/                    # Preprocessed graph datasets (produced by run_preprocess.py)
+│     ├─ breast/ | leg/ | lung/     # One folder per anatomical site (dataset)
+│     │  ├─ manifest.json           # Dataset manifest: ids, label y, file paths, #nodes, meta
+│     │  ├─ splits.json             # Train/val/test indices (auto-generated if missing)
+│     │  └─ <sample_id>/            # One directory per sample (graph)
+│     │     ├─ nodes.npy            # [N,13] node feature matrix (z-scores, asymmetries, etc.)
+│     │     ├─ edge_index.npy       # [2,E] undirected edges for bilateral fully-connected graphs
+│     │     ├─ pairs.npy            # [M,2] left-right mirrored node index pairs (for Sym branch)
+│     │     └─ meta.json            # Per-sample auxiliary metadata (timestamps, missingness, etc.)
 │
-├─ src/ # —— Core code —— (three-stage pipeline)
-│ ├─ scripts/ # CLI entrypoints
-│ │ ├─ run_preprocess.py # Read configs/dataset/* → create processed graphs
-│ │ ├─ run_pretrain.py # Read configs/pretrain/* → train & save best.ckpt
-│ │ ├─ run_metatest.py # Read configs/meta_test//.yaml → few-shot evaluation
-│ │ └─ plot_episode_viz.py # Single episode viz (2×2 panels for the four settings + CSV/TXT)
-│ │
-│ ├─ runners/ # Orchestration
-│ │ ├─ pretrain_runner.py # Data loading, training loop, early stop, best.ckpt saving
-│ │ └─ meta_eval_runner.py # Episode sampling, PFAMetaAdapter, metric aggregation
-│ │
-│ ├─ algorithms/
-│ │ ├─ pretrain.py # PretrainNet: GraphEncoder → Local/Sym/Global → Fusion → MetricHead
-│ │ ├─ pfa.py # Lightweight adaptation: recalibration (RBF/cos), weighted protos,
-│ │ │ # VTAN normalization, adaptive gamma, distance-softmax logits
-│ │ └─ adaptation/
-│ │ └─ pfa_finetuner.py # PFAMetaAdapter: inner-loop fine-tuning on Support + inference on Query
-│ │ # - compactness, prototype margin, CORAL alignment, recalibration, VTAN, BN-Eval
-│ │
-│ ├─ models/
-│ │ ├─ encoders/graph_encoder.py # Graph encoder (multi-head attention / MLP stacks)
-│ │ ├─ aggregators/ # Three branches + fusion
-│ │ │ ├─ local_branch.py
-│ │ │ ├─ sym_branch.py
-│ │ │ ├─ global_branch.py
-│ │ │ └─ fusion.py
-│ │ ├─ heads/metric_head.py # Distance-softmax classifier (learnable gamma)
-│ │ └─ layers/{resnet_mlp.py, norm.py}
-│ │
-│ ├─ losses/
-│ │ ├─ metric.py # metric_ce_loss (distance-softmax CE)
-│ │ └─ contrastive.py # Siamese / Triplet / N-pairs losses
-│ │
-│ ├─ evaluation/
-│ │ ├─ metrics.py # ACC / SPEC / SENS / G-mean / MCC / AUC
-│ │ └─ reporter.py # Console + CSV logger
-│ │
-│ ├─ data/
-│ │ ├─ datasets/mwr_dataset.py # Load manifest; auto-build splits if needed
-│ │ ├─ collate.py # Batch big-graph collation (nodes/edge_index/pairs/batch_ptr)
-│ │ ├─ episodic_sampler.py # Few-shot episode sampler (balanced support)
-│ │ └─ processing/ # Stage-1 implementations
-│ │ ├─ base_processor.py │ ambient_norm.py │ graph_builder.py │ node_features_common.py
-│ │ ├─ breast_processor.py │ leg_processor.py │ lung_processor.py
-│ │ └─ registry.py
-│ │
-│ └─ utils/ # Generic utilities (your current set of files)
-│ ├─ checkpoint.py # Save/load checkpoints (best.ckpt, etc.)
-│ ├─ config.py # load_yaml / ensure_dir / pretty printing
-│ ├─ logging.py # Unified logging (file/console levels & formats)
-│ ├─ math_utils.py # Numeric helpers (stable ops, distances, etc.)
-│ ├─ reporter.py # Step-wise metric recording to CSV (used by evaluation.reporter)
-│ ├─ seed.py # Global seeding (PyTorch/NumPy/random)
-│ └─ timer.py # Timing / ETA utilities (stage & step granularity)
+├─ src/                             # Core code (three-stage pipeline)
+│  ├─ scripts/                      # CLI entrypoints for each stage and for visualization
+│  │  ├─ run_preprocess.py          # Load dataset/*.yaml → build graphs under data/processed/<site>/
+│  │  ├─ run_pretrain.py            # Load pretrain/*.yaml → train PretrainNet; save best.ckpt + logs
+│  │  ├─ run_metatest.py            # Load meta_test/*/*.yaml → sample episodes; run adaptation & report
+│  │  └─ plot_episode_viz.py        # Draw a deterministic episode; plot 2×2 panels + save per-setting metrics
+│  │
+│  ├─ runners/                      # Orchestrators (parse YAML → construct models/loops → logging)
+│  │  ├─ pretrain_runner.py         # Source training loop, early-stopping, checkpointing, CSV logging
+│  │  └─ meta_eval_runner.py        # Episode sampler, PFAMetaAdapter calls, metric aggregation across episodes
+│  │
+│  ├─ algorithms/
+│  │  ├─ pretrain.py                # PretrainNet: GraphEncoder → Local/Sym/Global branches → Fusion → MetricHead
+│  │  ├─ pfa.py                     # Adaptation blocks: instance recalibration, prototype calc, VTAN, logits
+│  │  └─ adaptation/
+│  │     └─ pfa_finetuner.py        # PFAMetaAdapter: inner-loop FT (compactness/margin/CORAL) + inference
+│  │                                 #  Handles BN-eval mode, gradient clipping, adaptive gamma, proto weights
+│  │
+│  ├─ models/
+│  │  ├─ encoders/
+│  │  │  └─ graph_encoder.py        # Q-K-V graph attention/MLP stacks to produce node embeddings
+│  │  ├─ aggregators/               # Graph-to-case aggregation branches and fusion
+│  │  │  ├─ local_branch.py         # Local attention pooling (per-site saliency → weighted sum)
+│  │  │  ├─ sym_branch.py           # Symmetry aggregation using mirror pairs to emphasize asymmetry
+│  │  │  ├─ global_branch.py        # Global pooling guided by sparse “disperse/aggregate” scores
+│  │  │  └─ fusion.py               # Softmax-gated fusion of Local/Sym/Global into a 128-D case vector
+│  │  ├─ heads/
+│  │  │  └─ metric_head.py          # Distance-softmax classifier with learnable temperature (gamma)
+│  │  └─ layers/
+│  │     ├─ resnet_mlp.py           # Residual MLP blocks with norm/activation/dropout
+│  │     └─ norm.py                 # Lightweight norm/activation helpers + linear initialization
+│  │
+│  ├─ losses/
+│  │  ├─ metric.py                  # metric_ce_loss: CE on distance-softmax logits
+│  │  └─ contrastive.py             # Siamese / Triplet (hard, semi-hard) / N-pairs objectives
+│  │
+│  ├─ evaluation/
+│  │  ├─ metrics.py                 # Binary metrics: ACC, SPEC, SENS, G-mean, MCC, ROC-AUC
+│  │  └─ reporter.py                # Unified printer/writer for train/test (console + CSV)
+│  │
+│  ├─ data/
+│  │  ├─ datasets/
+│  │  │  └─ mwr_dataset.py          # Read manifest; assemble PyTorch items for each sample/graph
+│  │  ├─ collate.py                 # Batch-wise big-graph collation (nodes/edge_index/pairs/batch_ptr)
+│  │  ├─ episodic_sampler.py        # Few-shot episode sampler (balanced support; query per class)
+│  │  └─ processing/                # Stage-1 preprocessing implementations
+│  │     ├─ base_processor.py       # Base interface: fit(df) and process_row(row) → (nodes, edges, pairs, meta)
+│  │     ├─ ambient_norm.py         # Ambient/reference normalization fit + apply (linear slope; mean impute)
+│  │     ├─ graph_builder.py        # Bilateral fully-connected edges, mirror links, optional self-loops
+│  │     ├─ node_features_common.py # 13-D node features: shallow/deep temps, asymmetries, local/global z-scores
+│  │     ├─ breast_processor.py     # Breast-specific preprocessing rules (drop-on-missing, reference correction)
+│  │     ├─ leg_processor.py        # Leg-specific rules (trimmed means, pseudo-reference, linear correction)
+│  │     ├─ lung_processor.py       # Lung-specific rules (group means, reference correction; Diagnosis→y)
+│  │     └─ registry.py             # Name → Processor mapping (breast/leg/lung)
+│  │
+│  └─ utils/                        # General utilities used across the codebase
+│     ├─ checkpoint.py              # Save/load checkpoints (incl. strict/partial load helpers)
+│     ├─ config.py                  # YAML loader, output directory creation, pretty printing
+│     ├─ logging.py                 # Logging helpers (levels, formatters, file/console handlers)
+│     ├─ math_utils.py              # Numeric helpers (safe ops, pairwise distances, reductions)
+│     ├─ reporter.py                # Row-wise CSV writer used during long runs
+│     ├─ seed.py                    # Reproducible global seeding across NumPy/PyTorch/random
+│     └─ timer.py                   # Simple timers and ETA estimation per stage/step
 │
-└─ outputs/ # Auto-created training/test outputs
-├─ pretrain_/ # Train logs, best.ckpt, log.csv
-├─ meta_eval/* # Meta-test summary: episodes_metrics.csv, episodes_summary.txt, log.csv
-└─ episode_viz/* # Single-episode viz: PNG + metrics.csv/txt
-```text
+└─ outputs/                         # Auto-created training/evaluation outputs (one subfolder per run)
+   ├─ pretrain_*/*                  # Source training logs, best.ckpt, train/val log.csv, config snapshot
+   ├─ meta_eval/*                   # Episode-wise metrics (episodes_metrics.csv), summary.txt, log.csv
+   └─ episode_viz/*                 # Single-episode figure (PNG) + metrics.{csv,txt} + config snapshot
