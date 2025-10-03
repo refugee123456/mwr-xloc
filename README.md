@@ -223,6 +223,84 @@ python -m src.scripts.run_preprocess --cfg configs/dataset/leg.yaml
   - `--cfg configs/dataset/breast.yaml`
   - `--cfg configs/dataset/lung.yaml`
 
+### 2) Source Pretraining (Stage-2)
+
+Train the graph encoder + metric head on **breast** (source).  
+Choose the training recipe by swapping the YAML:
+
+```bash
+# (a) CE only
+python -m src.scripts.run_pretrain \
+  --cfg configs/pretrain/pretrain_none.yaml
+
+# (b) With metric Learning (recommended) — pick one:
+python -m src.scripts.run_pretrain \
+  --cfg configs/pretrain/pretrain_triplet_hard.yaml
+
+# or
+python -m src.scripts.run_pretrain \
+  --cfg configs/pretrain/pretrain_triplet_semi.yaml
+
+# or
+python -m src.scripts.run_pretrain \
+  --cfg configs/pretrain/pretrain_contrastive.yaml
+
+# or
+python -m src.scripts.run_pretrain \
+  --cfg configs/pretrain/pretrain_npairs.yaml
+```
+
+- Checkpoints are saved under `outputs/pretrain_*/best.ckpt`.
+- To use a different pretraining recipe, replace the `--cfg` YAML with any file in `configs/pretrain/`.
+
+### 3) Cross-Location Meta-Test (Stage-3)
+
+Pick **one** of the four evaluation settings and a target dataset (**Leg / Lung**).  
+All YAMLs point to the same pretrained `best.ckpt` inside their `main.ckpt` field  
+(you may override it if your runner supports a flag like `--ckpt <path>`).
+
+#### (A) No-FT + Recal (no VTAN)
+```bash
+python -m src.scripts.run_metatest \
+  --cfg configs/meta_test/simple_meta_test_without_VATN/metatest_leg_5_shot.yaml
+```
+
+#### (B) No-FT + Recal (+VTAN)
+```bash
+python -m src.scripts.run_metatest \
+  --cfg configs/meta_test/simple_meta_test/metatest_leg_5_shot.yaml
+```
+
+#### (C) FT + Recal (no VTAN)
+```bash
+python -m src.scripts.run_metatest \
+  --cfg configs/meta_test/meta_test_without_vtan/metatest_leg_5_shot.yaml
+```
+
+#### (D) FT + Recal (+VTAN)
+```bash
+python -m src.scripts.run_metatest \
+  --cfg configs/meta_test/meta_test_fintune/metatest_leg_5_shot.yaml
+```
+
+**Swap experiments by swapping YAMLs only:**
+- **Target:** change `leg` → `lung` in the file name.
+- **Shot size:** change `5_shot` → `3_shot` or `10_shot`.
+- **Setting (A/B/C/D):** switch the directory:
+  - `simple_meta_test_without_VATN` → (A) No-FT + Recal (no VTAN)
+  - `simple_meta_test` → (B) No-FT + Recal (+VTAN)
+  - `meta_test_without_vtan` → (C) FT + Recal (no VTAN)
+  - `meta_test_fintune` → (D) FT + Recal (+VTAN)
+
+**Outputs (per setting):**
+- `outputs/meta_eval/<run_name>/episodes_metrics.csv`
+- `outputs/meta_eval/<run_name>/episodes_summary.txt`  
+  Console prints **ACC / MCC / SPEC / SENS / AUC / G-mean** (threshold = 0.5).
+
+All inner-loop epochs, loss weights (compact/margin/CORAL), VTAN/recalib toggles, seeds, and `main.ckpt` are exposed in each YAML.
+
+
+
 
 
 
